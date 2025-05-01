@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "844068047717",
+    "project_id": "goupglow-1d3b4",
+    "storage_bucket": "goupglow-1d3b4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844068047717:android:f5d73ffc6d1411ed462f8c",
+        "android_client_info": {
+          "package_name": "com.example.go_up_glow_admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvpfR4qo876mW7xgy7k5yjlhvXFJOPHMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

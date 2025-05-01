@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+import 'package:go_up_glow_admin/colors/appcolors.dart';
+
+import '../auth/Start_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: Duration(seconds: 2),
+      vsync: this,
+    );
+
+    _animation = Tween<double>(begin: 0.5, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _controller.forward();
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        // Navigate to the next screen after the animation
+        Future.delayed(Duration(seconds: 1), () {
+          if (mounted) {}
+
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => StartScreen()));
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: blackColor, // Using your custom primary color
+      body: Center(
+        child: ScaleTransition(
+          scale: _animation,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/logo.png',
+                height: 150,
+                width: 150,
+              ),
+              SizedBox(height: 5),
+              Text(
+                "GlowUpGo",
+                style: TextStyle(
+                  fontSize: 30, // Reduced font size
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'nunito',
+                  color: gold, // Using your custom white color
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
